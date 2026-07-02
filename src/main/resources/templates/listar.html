@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Produtos</title>
+</head>
+<body>
+
+<h1>Controle de Produtos</h1>
+
+<a th:href="@{/produtos/novo}">Cadastrar Produto</a>
+
+<br><br>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="produto : ${produtos}">
+        <td th:text="${produto.id}"></td>
+        <td th:text="${produto.nome}"></td>
+        <td th:text="${produto.descricao}"></td>
+        <td th:text="${produto.categoria}"></td>
+        <td th:text="${produto.preco}"></td>
+        <td th:text="${produto.quantidade}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
