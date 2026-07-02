@@ -10,6 +10,7 @@
 
 <form th:action="@{/produtos/salvar}" th:object="${produto}" method="post">
 
+    <input type="hidden" th:field="*{id}">
     <p>Nome:</p>
     <input type="text" th:field="*{nome}">
     <span th:errors="*{nome}"></span>

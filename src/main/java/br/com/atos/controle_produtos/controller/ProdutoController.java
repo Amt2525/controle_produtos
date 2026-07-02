@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ProdutoController {
@@ -39,6 +40,32 @@ public class ProdutoController {
         }
 
         produtoService.salvar(produto);
+        return "redirect:/produtos";
+    }
+    @GetMapping("/produtos/editar/{id}")
+    public String editarProduto(@PathVariable Long id, Model model) {
+        Produto produto = produtoService.buscarPorId(id);
+        model.addAttribute("produto", produto);
+        return "formulario";
+    }
+
+    @PostMapping("/produtos/editar/{id}")
+    public String atualizarProduto(@PathVariable Long id,
+                                   @Valid Produto produto,
+                                   BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "formulario";
+        }
+
+        produto.setId(id);
+        produtoService.salvar(produto);
+
+        return "redirect:/produtos";
+    }
+    @GetMapping("/produtos/excluir/{id}")
+    public String excluirProduto(@PathVariable Long id) {
+        produtoService.excluir(id);
         return "redirect:/produtos";
     }
 }
