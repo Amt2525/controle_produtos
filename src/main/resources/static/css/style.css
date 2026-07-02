@@ -1,0 +1,74 @@
+body{
+
+    background:#eef2f7;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.navbar{
+
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+
+}
+
+.card{
+
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+
+}
+
+.card-header{
+
+    background:linear-gradient(90deg,#0d6efd,#3d8bfd);
+    color:white;
+    padding:20px;
+
+}
+
+.card-body{
+
+    padding:35px;
+
+}
+
+.form-label{
+
+    font-weight:600;
+
+}
+
+.form-control{
+
+    border-radius:10px;
+    padding:12px;
+
+}
+
+.form-control:focus{
+
+    box-shadow:0 0 10px rgba(13,110,253,.25);
+    border-color:#0d6efd;
+
+}
+
+textarea{
+
+    resize:none;
+
+}
+
+.btn{
+
+    border-radius:10px;
+    padding:10px 20px;
+    font-weight:600;
+
+}
+
+footer{
+
+    font-size:14px;
+
+}
