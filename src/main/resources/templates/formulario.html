@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <title>Cadastro de Produto</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,6 +10,12 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <span class="navbar-brand">Controle de Produtos</span>
+    </div>
+</nav>
 
 <div class="container mt-5">
 
@@ -23,45 +28,46 @@
         <input type="hidden" th:field="*{id}">
 
         <div class="mb-3">
-            <label>Nome</label>
-            <input class="form-control" type="text" th:field="*{nome}">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" th:field="*{nome}">
+            <div class="text-danger" th:errors="*{nome}"></div>
         </div>
 
         <div class="mb-3">
-            <label>Descrição</label>
-            <input class="form-control" type="text" th:field="*{descricao}">
+            <label class="form-label">Descrição</label>
+            <input type="text" class="form-control" th:field="*{descricao}">
+            <div class="text-danger" th:errors="*{descricao}"></div>
         </div>
 
         <div class="mb-3">
-            <label>Categoria</label>
-            <input class="form-control" type="text" th:field="*{categoria}">
+            <label class="form-label">Categoria</label>
+            <input type="text" class="form-control" th:field="*{categoria}" placeholder="Ex: Cozinha">
+            <div class="text-danger" th:errors="*{categoria}"></div>
         </div>
 
         <div class="mb-3">
-            <label>Preço</label>
-            <input class="form-control"
-                   type="number"
-                   step="0.01"
-                   th:field="*{preco}">
+            <label class="form-label">Preço</label>
+            <input type="number" step="0.01" class="form-control" th:field="*{preco}" placeholder="R$">
+            <div class="text-danger" th:errors="*{preco}"></div>
         </div>
 
         <div class="mb-3">
-            <label>Quantidade</label>
-            <input class="form-control"
-                   type="number"
-                   th:field="*{quantidade}">
+            <label class="form-label">Quantidade</label>
+            <input type="number" class="form-control" th:field="*{quantidade}">
+            <div class="text-danger" th:errors="*{quantidade}"></div>
         </div>
 
-        <button class="btn btn-primary">
-            Salvar
-        </button>
+        <button class="btn btn-primary">Salvar</button>
 
-        <a class="btn btn-secondary"
-           th:href="@{/produtos}">
+        <a class="btn btn-secondary" th:href="@{/produtos}">
             Voltar
         </a>
 
     </form>
+
+    <footer class="text-center mt-5 mb-3 text-muted">
+        Sistema desenvolvido em Spring Boot + Thymeleaf
+    </footer>
 
 </div>
 
